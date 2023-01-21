@@ -49,12 +49,8 @@ $$ c = \frac{A}{El} $$
 
 The final concentration of sample X1 was determined to be 44.24 mg/L. 
 
-Further details can be found within the notebooks. 
-
-
-
-
-
-
+Further details can be found within the notebooks. The absorption coefficient
+is actually wavelength dependent and so an extension would be to include
+this in the model to get a more accurate concentration. 
 
 
