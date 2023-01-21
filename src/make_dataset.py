@@ -1,12 +1,26 @@
 """
 make_dataset module - functions to create the data.
+
+TODO: 
+  Make this a data class
+  Generally tidy this up
 """
 
 import numpy as np
 import pandas as pd
 
 
-def make_dataset_from_raw(path):
+def make_dataset_from_raw(path: str):
+    """
+    Creates a clean data frame with corrected absorption from raw CSV.
+
+    Args:
+        path: Path to the data data to be read in.
+
+    Returns:
+        Returns (data, file info) tuple.
+
+    """
     # CSV not in standard UTF-8 so specify encoding
     with open(path, "r", encoding="utf-8-sig") as f:
         # set default file info
@@ -79,7 +93,8 @@ def make_dataset_from_raw(path):
     )
 
     # calculate corrected absorption with error
-    #   ref for error calc: https://faraday.physics.utoronto.ca/PVB/Harrison/ErrorAnalysis/Propagation.html
+    #   ref for error calc:
+    #   https://faraday.physics.utoronto.ca/PVB/Harrison/ErrorAnalysis/Propagation.html
     df["corrected_mean_absorption_sample"] = (
         df["mean_absorption_sample"] - df["mean_absorption_blank"]
     )
